@@ -19,11 +19,19 @@ export function AnimatedCursor() {
   }, []);
 
   return (
-    <motion.div
-      aria-hidden="true"
-      animate={{ x: position.x - 12, y: position.y - 12 }}
-      transition={{ type: 'spring', stiffness: 460, damping: 28, mass: 0.2 }}
-      className="pointer-events-none fixed z-50 hidden h-6 w-6 rounded-full border border-cyber-neon/80 bg-cyber-neon/20 shadow-neon backdrop-blur-sm lg:block"
-    />
+    <>
+      <motion.div
+        aria-hidden="true"
+        animate={{ x: position.x - 14, y: position.y - 14 }}
+        transition={{ type: 'spring', stiffness: 430, damping: 28, mass: 0.2 }}
+        className="pointer-events-none fixed z-50 hidden h-7 w-7 rounded-full border border-cyan-200/60 bg-cyan-300/10 shadow-[0_0_30px_rgba(34,211,238,0.22)] backdrop-blur-sm xl:block"
+      />
+      <motion.div
+        aria-hidden="true"
+        animate={{ x: position.x - 2, y: position.y - 2 }}
+        transition={{ type: 'spring', stiffness: 520, damping: 32, mass: 0.15 }}
+        className="pointer-events-none fixed z-50 hidden h-1 w-1 rounded-full bg-white xl:block"
+      />
+    </>
   );
 }

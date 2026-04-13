@@ -3,39 +3,18 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      colors: {
-        cyber: {
-          bg: '#05070f',
-          panel: '#0a1020',
-          edge: '#1a2a48',
-          neon: '#29c4ff',
-          violet: '#706dff',
-          text: '#d6ecff'
-        }
+      fontFamily: {
+        sans: ['Manrope', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif']
       },
       boxShadow: {
-        neon: '0 0 20px rgba(41,196,255,0.35), 0 0 40px rgba(112,109,255,0.2)',
-        card: '0 10px 30px rgba(0,0,0,0.35)'
+        glow: '0 12px 40px rgba(34,211,238,0.18)',
+        panel: '0 18px 60px rgba(2,6,23,0.42)'
       },
       backgroundImage: {
-        'cyber-grid': 'linear-gradient(rgba(41,196,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(41,196,255,0.08) 1px, transparent 1px)'
-      },
-      keyframes: {
-        pulseGlow: {
-          '0%, 100%': { boxShadow: '0 0 12px rgba(41,196,255,0.35)' },
-          '50%': { boxShadow: '0 0 24px rgba(112,109,255,0.45)' }
-        },
-        scan: {
-          '0%': { transform: 'translateX(-100%)' },
-          '100%': { transform: 'translateX(300%)' }
-        }
-      },
-      animation: {
-        pulseGlow: 'pulseGlow 2.8s ease-in-out infinite',
-        scan: 'scan 6s linear infinite'
+        grid: 'linear-gradient(rgba(148,163,184,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(148,163,184,0.08) 1px, transparent 1px)'
       }
     }
   },
-  darkMode: 'class',
   plugins: []
 };

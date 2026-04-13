@@ -8,7 +8,7 @@ export function ScrollProgress() {
     <motion.div
       aria-hidden="true"
       style={{ scaleX }}
-      className="fixed left-0 top-0 z-[60] h-1 w-full origin-left bg-gradient-to-r from-cyber-neon via-cyber-violet to-cyber-neon shadow-neon"
+      className="fixed left-0 top-0 z-[60] h-[3px] w-full origin-left bg-gradient-to-r from-cyan-300 via-sky-400 to-fuchsia-400"
     />
   );
 }

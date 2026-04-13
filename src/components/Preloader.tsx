@@ -7,7 +7,7 @@ type PreloaderProps = {
 
 export function Preloader({ onDone }: PreloaderProps) {
   useEffect(() => {
-    const timeout = window.setTimeout(onDone, 1400);
+    const timeout = window.setTimeout(onDone, 1500);
     return () => window.clearTimeout(timeout);
   }, [onDone]);
 
@@ -16,15 +16,21 @@ export function Preloader({ onDone }: PreloaderProps) {
       initial={{ opacity: 1 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[80] flex items-center justify-center bg-cyber-bg"
+      className="fixed inset-0 z-[80] flex items-center justify-center bg-slate-950"
     >
-      <div className="relative flex h-24 w-24 items-center justify-center">
-        <div className="absolute inset-0 rounded-full border border-cyber-neon/40" />
+      <div className="relative flex h-28 w-28 items-center justify-center">
+        <div className="absolute inset-0 rounded-full border border-white/10" />
         <motion.div
-          className="h-10 w-10 rounded-full bg-cyber-neon/70"
-          animate={{ scale: [0.7, 1.1, 0.7], opacity: [0.4, 1, 0.4] }}
-          transition={{ repeat: Infinity, duration: 1.2, ease: 'easeInOut' }}
+          className="absolute h-24 w-24 rounded-full border border-cyan-300/20"
+          animate={{ rotate: 360 }}
+          transition={{ repeat: Infinity, duration: 8, ease: 'linear' }}
         />
+        <motion.div
+          className="h-12 w-12 rounded-full bg-[radial-gradient(circle,rgba(165,243,252,0.95),rgba(34,211,238,0.4)_42%,rgba(8,47,73,0)_74%)]"
+          animate={{ scale: [0.82, 1.1, 0.82], opacity: [0.65, 1, 0.65] }}
+          transition={{ repeat: Infinity, duration: 1.35, ease: 'easeInOut' }}
+        />
+        <p className="absolute -bottom-10 text-[11px] uppercase tracking-[0.34em] text-slate-400">Loading Portfolio</p>
       </div>
     </motion.div>
   );

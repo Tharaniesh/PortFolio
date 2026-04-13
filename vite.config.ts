@@ -10,7 +10,28 @@ export default defineConfig(({ mode }) => {
     base,
     build: {
       sourcemap: false,
-      target: 'es2020'
+      target: 'es2020',
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes('node_modules/@react-three/drei')) {
+              return 'drei-vendor';
+            }
+
+            if (id.includes('node_modules/@react-three/fiber')) {
+              return 'r3f-vendor';
+            }
+
+            if (id.includes('node_modules/three')) {
+              return 'three-core';
+            }
+
+            if (id.includes('node_modules/framer-motion')) {
+              return 'motion-vendor';
+            }
+          }
+        }
+      }
     }
   };
 });

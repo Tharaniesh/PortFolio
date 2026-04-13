@@ -1,10 +1,10 @@
-import { Suspense, lazy, useMemo, useState } from 'react';
-import { motion } from 'framer-motion';
+import { Suspense, lazy, useState } from 'react';
 import { AnimatedCursor } from './components/AnimatedCursor';
 import { Preloader } from './components/Preloader';
 import { ScrollProgress } from './components/ScrollProgress';
-import { SectionHeading } from './components/SectionHeading';
-import { NavBar } from './components/NavBar';
+import { NavBar } from './components/layout/NavBar';
+import { SectionShell } from './components/layout/SectionShell';
+import { SiteFooter } from './components/layout/SiteFooter';
 import { HeroSection } from './sections/HeroSection';
 
 const AboutSection = lazy(() => import('./sections/AboutSection'));
@@ -14,49 +14,57 @@ const ContactSection = lazy(() => import('./sections/ContactSection'));
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const sectionFade = useMemo(
-    () => ({
-      initial: { opacity: 0, y: 24 },
-      whileInView: { opacity: 1, y: 0 },
-      viewport: { once: true, amount: 0.25 },
-      transition: { duration: 0.7, ease: 'easeOut' }
-    }),
-    []
-  );
 
   return (
     <>
       {loading && <Preloader onDone={() => setLoading(false)} />}
       <ScrollProgress />
       <AnimatedCursor />
-      <div className="relative min-h-screen overflow-x-hidden bg-cyber-bg text-cyber-text">
+      <div className="relative min-h-screen overflow-x-hidden bg-slate-950 text-slate-100">
+        <div className="noise-overlay" />
         <NavBar />
-        <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_15%_10%,rgba(41,196,255,0.14),transparent_30%),radial-gradient(circle_at_80%_80%,rgba(112,109,255,0.12),transparent_28%)]" />
         <HeroSection />
 
-        <main className="mx-auto flex w-full max-w-6xl flex-col gap-24 px-4 pb-20 sm:px-6 lg:px-8">
+        <main className="mx-auto flex w-full max-w-6xl flex-col gap-28 px-4 pb-24 sm:px-6 lg:px-8">
           <Suspense fallback={null}>
-            <motion.section id="about" {...sectionFade} className="scroll-mt-24">
-              <SectionHeading title="About" index="01" />
+            <SectionShell
+              id="about"
+              index="01"
+              title="A multidisciplinary practice built around visual clarity and interactive depth."
+              description="From interface systems to product presentation, the work is shaped to feel deliberate, modern, and technically grounded."
+            >
               <AboutSection />
-            </motion.section>
+            </SectionShell>
 
-            <motion.section id="skills" {...sectionFade} className="scroll-mt-24">
-              <SectionHeading title="Skill Matrix" index="02" />
+            <SectionShell
+              id="skills"
+              index="02"
+              title="Capabilities curated for premium digital work."
+              description="The toolkit is intentionally grouped to reflect how design, frontend craft, and interactive systems come together in real projects."
+            >
               <SkillsSection />
-            </motion.section>
+            </SectionShell>
 
-            <motion.section id="projects" {...sectionFade} className="scroll-mt-24">
-              <SectionHeading title="Projects" index="03" />
+            <SectionShell
+              id="projects"
+              index="03"
+              title="Selected work with stronger outcomes, structure, and visual presence."
+              description="A focused showcase spanning product concepts, packaging systems, recommendation logic, and immersive portfolio design."
+            >
               <ProjectsSection />
-            </motion.section>
+            </SectionShell>
 
-            <motion.section id="contact" {...sectionFade} className="scroll-mt-24">
-              <SectionHeading title="Contact" index="04" />
+            <SectionShell
+              id="contact"
+              index="04"
+              title="Let's build something with a clearer point of view."
+              description="For collaborations, freelance work, or concept-led builds, the portfolio is set up as a direct starting point."
+            >
               <ContactSection />
-            </motion.section>
+            </SectionShell>
           </Suspense>
         </main>
+        <SiteFooter />
       </div>
     </>
   );
