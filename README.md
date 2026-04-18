@@ -1,43 +1,34 @@
 # Tharaniesh Portfolio
 
-This project is a single-page personal portfolio built with React, Vite, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber. It presents Tharaniesh J as a Game Designer and Junior Game Data Analyst through a visually styled landing page with motion effects, section-based navigation, and an interactive hero background.
+A premium single-page portfolio built with React, Vite, TypeScript, Tailwind CSS, Framer Motion, and React Three Fiber. The site is designed to present selected work, design capability, interactive frontend craft, and Blender-based 3D preview work in a polished dark UI.
 
-## Project Description
+## Overview
 
-The portfolio is designed to showcase a mix of game design, storytelling, and data-oriented skills in a modern web interface. The site follows a cyber-inspired visual style and is structured as a scrollable one-page experience with clearly separated sections for introduction, background, skills, projects, and contact details.
+This portfolio is structured as a modern scroll-based experience with clear sections for:
 
-Its purpose is to act as a personal brand site and portfolio entry point where visitors can:
+- hero and introduction
+- about and creative direction
+- skills and capability groups
+- selected projects
+- interactive 3D preview
+- contact and collaboration
 
-- understand Tharaniesh's role and focus area
-- review core skill categories
-- see a featured project
-- access contact and social links
+The current visual direction focuses on clean spacing, smooth motion, premium glass-style surfaces, and interactive presentation without clutter.
 
-## What It Is Performing Right Now
+## Current Features
 
-At the moment, the application is performing as a polished frontend portfolio experience with the following behavior:
-
-- shows a short preloader animation when the app opens
-- displays a fixed navigation bar with anchor links to each section
-- renders an animated hero section with a typing-text effect
-- includes a Three.js background with floating geometric objects and particle effects
-- tracks page scroll with a progress bar at the top
-- shows a custom animated cursor on large screens
-- lazy-loads the About, Skills, Projects, and Contact sections
-- reveals sections with Framer Motion scroll animations
-- presents skill cards for game design and data/analytics
-- highlights one featured project: `Genshin Impact Team Builder with AI Integration`
-- provides direct contact links for email, LinkedIn, and GitHub
-- validates the contact form on the frontend
-
-## Current Limitations
-
-These parts are not fully connected yet:
-
-- the contact form does not submit data to a backend or email service
-- the success message only confirms frontend validation
-- the GitHub button inside the Projects section currently has an empty link
-- the portfolio currently features one main project card rather than a larger project gallery
+- React + TypeScript single-page portfolio architecture
+- Vite-based development and production build setup
+- Tailwind CSS styling with a custom premium dark aesthetic
+- Framer Motion reveal and entrance animations
+- React Three Fiber hero scene
+- dedicated 3D preview section for Blender-exported `.glb` models
+- orbit controls with rotate, zoom, and pan support in the 3D viewer
+- loading, retry, and fallback states for model preview
+- playful “Show Texture” easter egg mode with recovery button
+- responsive layout for desktop and mobile
+- section navigation with anchor-based scrolling
+- animated cursor and scroll progress feedback
 
 ## Tech Stack
 
@@ -52,56 +43,56 @@ These parts are not fully connected yet:
 
 ## Run Locally
 
-1. Install dependencies:
+1. Install dependencies
 
 ```bash
 npm install
 ```
 
-2. Start the development server:
+2. Start the development server
 
 ```bash
 npm run dev
 ```
 
-3. Build the production version:
+3. Build for production
 
 ```bash
 npm run build
 ```
 
-4. Preview the production build:
+4. Preview the production build
 
 ```bash
 npm run preview
 ```
+
+## Deployment
+
+The project is configured for GitHub Pages deployment.
+
+```bash
+npm run deploy
+```
+
+Configured homepage:
+
+`https://Tharaniesh.github.io/PortFolio`
 
 ## Project Structure
 
 ```text
 portfolio/
 |-- public/
-|   `-- favicon.svg
 |-- src/
+|   |-- assets/
+|   |   `-- blender/
 |   |-- components/
-|   |   |-- AnimatedCursor.tsx
-|   |   |-- NavBar.tsx
-|   |   |-- Preloader.tsx
-|   |   |-- ScrollProgress.tsx
-|   |   `-- SectionHeading.tsx
+|   |-- data/
 |   |-- hooks/
-|   |   |-- useMouseParallax.ts
-|   |   `-- useTypingText.ts
 |   |-- sections/
-|   |   |-- AboutSection.tsx
-|   |   |-- ContactSection.tsx
-|   |   |-- HeroSection.tsx
-|   |   |-- ProjectsSection.tsx
-|   |   `-- SkillsSection.tsx
 |   |-- styles/
-|   |   `-- index.css
 |   |-- three/
-|   |   `-- ThreeBackground.tsx
 |   |-- App.tsx
 |   |-- main.tsx
 |   `-- vite-env.d.ts
@@ -112,14 +103,14 @@ portfolio/
 `-- vite.config.ts
 ```
 
-## Deployment
+## Notes
 
-The project is configured for deployment to GitHub Pages using:
+- The 3D preview currently uses a local Blender-exported `.glb` file from `src/assets/blender`.
+- Large 3D assets can increase load time, so model optimization is recommended for production-quality performance.
+- The portfolio is intended as a presentation site and can be extended with backend-powered contact handling later if needed.
 
-```bash
-npm run deploy
-```
+## Copyright
 
-The configured homepage is:
+Copyright © Tharaniesh J. All rights reserved.
 
-`https://Tharaniesh.github.io/PortFolio`
+This portfolio, its design, source content, branding, written copy, and visual presentation may not be reused, redistributed, or reproduced without permission.
