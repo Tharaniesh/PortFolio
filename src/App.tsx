@@ -10,6 +10,7 @@ import { HeroSection } from './sections/HeroSection';
 const AboutSection = lazy(() => import('./sections/AboutSection'));
 const SkillsSection = lazy(() => import('./sections/SkillsSection'));
 const ProjectsSection = lazy(() => import('./sections/ProjectsSection'));
+const ModelPreviewSection = lazy(() => import('./sections/ModelPreviewSection'));
 const ContactSection = lazy(() => import('./sections/ContactSection'));
 
 function App() {
@@ -50,13 +51,25 @@ function App() {
               index="03"
               title="Selected work with stronger outcomes, structure, and visual presence."
               description="A focused showcase spanning product concepts, packaging systems, recommendation logic, and immersive portfolio design."
+              introClassName="lg:max-w-[25rem]"
+              contentClassName="xl:-ml-8"
+              className="[&>div]:xl:grid-cols-[minmax(0,0.72fr)_minmax(0,1.7fr)]"
             >
               <ProjectsSection />
             </SectionShell>
 
             <SectionShell
-              id="contact"
+              id="preview"
               index="04"
+              title="3D Preview"
+              description="Interactive model showcase from my Blender work"
+            >
+              <ModelPreviewSection />
+            </SectionShell>
+
+            <SectionShell
+              id="contact"
+              index="05"
               title="Let's build something with a clearer point of view."
               description="For collaborations, freelance work, or concept-led builds, the portfolio is set up as a direct starting point."
             >

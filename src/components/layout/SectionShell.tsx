@@ -8,13 +8,25 @@ type SectionShellProps = PropsWithChildren<{
   description?: string;
   aside?: ReactNode;
   className?: string;
+  introClassName?: string;
+  contentClassName?: string;
 }>;
 
-export function SectionShell({ id, index, title, description, aside, className = '', children }: SectionShellProps) {
+export function SectionShell({
+  id,
+  index,
+  title,
+  description,
+  aside,
+  className = '',
+  introClassName = '',
+  contentClassName = '',
+  children
+}: SectionShellProps) {
   return (
     <section id={id} className={`scroll-mt-28 ${className}`}>
       <div className="grid gap-8 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.45fr)] lg:gap-12">
-        <Reveal className="space-y-5">
+        <Reveal className={`space-y-5 ${introClassName}`}>
           <div className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.28em] text-cyan-200/70">
             <span>{index}</span>
             <span className="h-px w-10 bg-gradient-to-r from-cyan-300/70 to-transparent" />
@@ -26,7 +38,7 @@ export function SectionShell({ id, index, title, description, aside, className =
           {aside}
         </Reveal>
 
-        <div>{children}</div>
+        <div className={contentClassName}>{children}</div>
       </div>
     </section>
   );
