@@ -63,6 +63,8 @@ function App() {
               index="04"
               title="3D Preview"
               description="Interactive model showcase from my Blender work"
+              className="[&>div]:gap-6 [&>div]:lg:grid-cols-1"
+              introClassName="max-w-3xl"
             >
               <ModelPreviewSection />
             </SectionShell>
@@ -72,6 +74,9 @@ function App() {
               index="05"
               title="Let's build something with a clearer point of view."
               description="For collaborations, freelance work, or concept-led builds, the portfolio is set up as a direct starting point."
+              introClassName="lg:max-w-[24rem]"
+              contentClassName="xl:-ml-6"
+              className="[&>div]:xl:grid-cols-[minmax(0,0.76fr)_minmax(0,1.56fr)]"
             >
               <ContactSection />
             </SectionShell>
